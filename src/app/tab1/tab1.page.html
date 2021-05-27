@@ -1,30 +1,31 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
-    <ion-title> Vídeos App </ion-title>
+    <ion-title> {{ titulo }} </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" color="light">
   <ion-searchbar placeholder="Buscar"> </ion-searchbar>
   <ion-list>
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let filme of listaVideos">
       <ion-item lines="full">
         <ion-thumbnail slot="start">
-          <img
-            src="https://www.themoviedb.org/t/p/w1280/xLxgVxFWvb9hhUyCDDXxRPPnFck.jpg"
-          />
+          <img [src]="filme.cartaz" />
         </ion-thumbnail>
 
         <ion-label class="ion-text-wrap">
           <div>
-            <h1>Coringa (2019)</h1>
-            <p>03/10/2019 (BR) - 2h 2m</p>
-            <p>Crime, Thriller, Drama</p>
+            <h1>{{filme.nome}}</h1>
+            <p>{{filme.duracao}} - {{filme.duracao}}</p>
+            <ion-badge color="light" *ngFor="let genero of filme.generos">
+              {{genero}}
+            </ion-badge
+            >
           </div>
         </ion-label>
 
         <ion-chip color="success" outline>
-          <ion-label>82%</ion-label>
+          <ion-label>{{filme.classificacao}}%</ion-label>
         </ion-chip>
       </ion-item>
 
@@ -34,90 +35,5 @@
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
-
-    <ion-item-sliding>
-      <ion-item lines="full">
-        <ion-thumbnail slot="start">
-          <img
-            src="https://www.themoviedb.org/t/p/w1280/9NvYyM8H6d5KAVGqpyFV9YPO5cU.jpg"
-          />
-        </ion-thumbnail>
-
-        <ion-label class="ion-text-wrap">
-          <div>
-            <h1>Tom & Jerry - O Filme (2021)</h1>
-            <p>11/02/2021 (BR) - 1h 41m</p>
-            <p>Comédia, Família, Animação</p>
-          </div>
-        </ion-label>
-
-        <ion-chip color="success" outline>
-          <ion-label>73%</ion-label>
-        </ion-chip>
-      </ion-item>
-
-      <ion-item-options side="end">
-        <ion-item-option color="lilas" (click)="exibirAlertaFavorito()">
-          <ion-icon slot="icon-only" name="star"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-sliding>
-      <ion-item lines="full">
-        <ion-thumbnail slot="start">
-          <img
-            src="https://www.themoviedb.org/t/p/w1280/orrJiQs30G6zSkT8is4QOAtRpFM.jpg"
-          />
-        </ion-thumbnail>
-
-        <ion-label class="ion-text-wrap">
-          <div>
-            <h1>Convenção das Bruxas (2020)</h1>
-            <p>19/11/2020 (BR) - 1h 46m</p>
-            <p>Família, Fantasia, Aventura, Comédia, Terror</p>
-          </div>
-        </ion-label>
-
-        <ion-chip color="success" outline>
-          <ion-label>67%</ion-label>
-        </ion-chip>
-      </ion-item>
-
-      <ion-item-options side="end">
-        <ion-item-option color="lilas" (click)="exibirAlertaFavorito()">
-          <ion-icon slot="icon-only" name="star"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-
-    <ion-item-sliding>
-      <ion-item lines="full">
-        <ion-thumbnail slot="start">
-          <img
-            src="https://www.themoviedb.org/t/p/w1280/h3oT6lZcYC2khtZnzHBgqthj5W.jpg"
-          />
-        </ion-thumbnail>
-
-        <ion-label class="ion-text-wrap">
-          <div>
-            <h1>Twist (2021)</h1>
-            <p>22/01/2021 (BR) - 1h 31m</p>
-            <p>Crime, Drama, Ação</p>
-          </div>
-        </ion-label>
-
-        <ion-chip color="success" outline>
-          <ion-label>65%</ion-label>
-        </ion-chip>
-      </ion-item>
-
-      <ion-item-options side="end">
-        <ion-item-option color="lilas" (click)="exibirAlertaFavorito()">
-          <ion-icon slot="icon-only" name="star"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-
   </ion-list>
 </ion-content>
