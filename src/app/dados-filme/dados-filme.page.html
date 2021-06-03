@@ -21,7 +21,11 @@
 
     <ion-card-content>
       <h1>{{filme.title}} -
-        <ion-chip color="success">{{filme.vote_average}}</ion-chip>
+        <ion-chip
+          [color]="filme.vote_average < 5 ? 'danger' : ((filme.vote_average < 7 ? 'warning' : 'success'))"
+        >
+          {{filme.vote_average}}
+        </ion-chip>
       </h1>
       <p>{{filme.release_date | date:'shortDate'}}</p>
     </ion-card-content>
