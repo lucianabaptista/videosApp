@@ -128,7 +128,7 @@ export class Tab1Page implements OnInit {
   }
 
   ngOnInit(){
-    this.generoService.buscarGeneros().subscribe(dados =>{
+    this.generoService.buscarGeneros('movie').subscribe(dados =>{
       console.log('Generos: ', dados.genres);
       dados.genres.forEach(genero => {
         this.generos[genero.id] = genero.name;
